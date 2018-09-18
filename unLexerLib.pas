@@ -247,12 +247,16 @@ begin
 end;
 
 procedure TfmLexerLibrary.actDeleteLexerExecute(Sender: TObject);
+var
+  an: TSyntAnalyzer;
 begin
   if (LV.ItemIndex>=0) then
     if Application.MessageBox('Delete selected lexer?', 'Lexer library',
       MB_OKCANCEL or MB_ICONQUESTION)=id_ok then
     begin
-      LV.Items.Objects[LV.ItemIndex].Free;
+      an:= LV.Items.Objects[LV.ItemIndex] as TSyntAnalyzer;
+      DeleteFile(LexerFilenameLexmap(an.LexerName, FLexDir));
+      an.Free;
       FLexLib.Modified:= True;
       UpdateList;
     end;
