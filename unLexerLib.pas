@@ -47,8 +47,6 @@ var
 procedure DoLexerLibraryDialog(ALexerLib: TSyntaxManager; ATreeImages: TImageList;
   const ALexerLibDir: string);
 
-function LexerFilename(const ALexName, ALexDir: string): string;
-
 implementation
 
 uses
