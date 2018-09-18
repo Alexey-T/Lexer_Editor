@@ -1,9 +1,10 @@
 object fmApp: TfmApp
   Left = 312
   Top = 475
-  Width = 545
-  Height = 264
+  BorderStyle = bsDialog
   Caption = 'CudaText Lexer Editor'
+  ClientHeight = 225
+  ClientWidth = 465
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,16 +16,16 @@ object fmApp: TfmApp
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object mmo1: TMemo
+  object mmoLog: TMemo
     Left = 8
     Top = 0
-    Width = 513
+    Width = 449
     Height = 177
     ReadOnly = True
     TabOrder = 0
   end
   object btnEdit: TButton
-    Left = 128
+    Left = 96
     Top = 192
     Width = 137
     Height = 25
@@ -33,7 +34,7 @@ object fmApp: TfmApp
     OnClick = btnEditClick
   end
   object btnCancel: TButton
-    Left = 272
+    Left = 240
     Top = 192
     Width = 129
     Height = 25
@@ -43,10 +44,10 @@ object fmApp: TfmApp
   end
   object ilImagesTree: TImageList
     AllocBy = 10
-    Left = 416
-    Top = 192
+    Left = 248
+    Top = 48
     Bitmap = {
-      494C010108000C000C0010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C010108000C000C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -446,10 +447,11 @@ object fmApp: TfmApp
       8001EF01EF03ED870001C701C7018001000100010001E007000100030001C007
       0001000300038001000100070007C0070001000F000FC00700010C070C078001
       000138073807C0070001FC07F807E0070003FE07FC07800180FFFC07F807EC17
-      C1FFFE0FFC0FEDB7FFFFFC0FFC0FFFFF}
+      C1FFFE0FFC0FEDB7FFFFFC0FFC0FFFFF00000000000000000000000000000000
+      000000000000}
   end
   object XPManifest1: TXPManifest
-    Left = 448
-    Top = 192
+    Left = 288
+    Top = 64
   end
 end

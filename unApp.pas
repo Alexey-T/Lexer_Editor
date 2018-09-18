@@ -14,7 +14,7 @@ uses
 
 type
   TfmApp = class(TForm)
-    mmo1: TMemo;
+    mmoLog: TMemo;
     btnEdit: TButton;
     btnCancel: TButton;
     ilImagesTree: TImageList;
@@ -41,7 +41,7 @@ implementation
 
 procedure LoadLexerLib(SyntaxManager: TSyntaxManager; ALexerDir: string);
 var
-  dir, fn, lexname: string;
+  fn, lexname: string;
   L: TStringList;
   an: TSyntAnalyzer;
   ini: TIniFile;
@@ -76,7 +76,7 @@ begin
   for i:= 0 to SyntaxManager.AnalyzerCount-1 do
   begin
     an:= SyntaxManager.Analyzers[i];
-    fn:= dir+'\'+an.LexerName+'.cuda-lexmap';
+    fn:= ALexerDir+'\'+an.LexerName+'.cuda-lexmap';
     if FileExists(fn) then
     begin
       ini:= TIniFile.Create(fn);
@@ -109,6 +109,7 @@ begin
   FLexLib:= TSyntaxManager.Create(Self);
   LoadLexerLib(FLexLib, FLexDir);
   DoLog('Lexers found: '+IntToStr(FLexLib.AnalyzerCount));
+  btnEdit.Enabled:= FLexLib.AnalyzerCount>0;
 end;
 
 procedure TfmApp.btnEditClick(Sender: TObject);
@@ -118,7 +119,7 @@ end;
 
 procedure TfmApp.DoLog(S: string);
 begin
-  mmo1.Lines.Add(S);
+  mmoLog.Lines.Add(S);
 end;
 
 end.
