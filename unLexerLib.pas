@@ -167,7 +167,6 @@ end;
 
 procedure TfmLexerLibrary.FormShow(Sender: TObject);
 begin
-  Caption:= 'Lexer library';
   UpdateList;
 end;
 
@@ -226,6 +225,7 @@ begin
       LV.Items[LV.ItemIndex]:= LexerNameWithLinks(An);
       FLexLib.Modified:= True;
       An.Tag:= 1;
+      UpdateList;
     end;
   end;
 end;
@@ -249,7 +249,8 @@ end;
 procedure TfmLexerLibrary.actDeleteLexerExecute(Sender: TObject);
 begin
   if (LV.ItemIndex>=0) then
-    if Application.MessageBox('Delete selected lexer?', 'Lexer editor', MB_OKCANCEL)=id_ok then
+    if Application.MessageBox('Delete selected lexer?', 'Lexer library',
+      MB_OKCANCEL or MB_ICONQUESTION)=id_ok then
     begin
       LV.Items.Objects[LV.ItemIndex].Free;
       FLexLib.Modified:= True;

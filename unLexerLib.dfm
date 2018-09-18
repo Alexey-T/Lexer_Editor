@@ -4,6 +4,7 @@ object fmLexerLibrary: TfmLexerLibrary
   Width = 447
   Height = 433
   BorderIcons = [biSystemMenu]
+  Caption = 'Lexer library'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

@@ -2,7 +2,7 @@ object fmApp: TfmApp
   Left = 312
   Top = 475
   BorderStyle = bsDialog
-  Caption = 'CudaText Lexer Editor'
+  Caption = 'Lexer Editor'
   ClientHeight = 225
   ClientWidth = 465
   Color = clBtnFace
@@ -29,7 +29,7 @@ object fmApp: TfmApp
     Top = 192
     Width = 137
     Height = 25
-    Caption = 'Edit lexer library...'
+    Caption = 'Edit library...'
     TabOrder = 1
     OnClick = btnEditClick
   end
@@ -38,7 +38,7 @@ object fmApp: TfmApp
     Top = 192
     Width = 129
     Height = 25
-    Caption = 'Cancel'
+    Caption = 'Close'
     TabOrder = 2
     OnClick = btnCancelClick
   end

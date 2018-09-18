@@ -404,8 +404,8 @@ begin
     if Result then
     begin
       ALexer.Assign(Form.FSynt);
-      if Assigned(OnBackupLexerStyles) then
-        OnBackupLexerStyles(ALexer);
+      //if Assigned(OnBackupLexerStyles) then
+      //  OnBackupLexerStyles(ALexer);
 
       Ini.WriteString('comments', 'str1', Form.EditCmtBlock1.Text);
       Ini.WriteString('comments', 'str2', Form.EditCmtBlock2.Text);
@@ -532,7 +532,9 @@ end;
 procedure TfmLexerProp.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-  Action := caFree;
+  Action := caHide;
+  if ModalResult=mrOk then
+    GetCommonProps;
 end;
 
 procedure TfmLexerProp.GetCommonProps;
