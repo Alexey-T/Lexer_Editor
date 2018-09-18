@@ -1,4 +1,4 @@
-object Form1: TForm1
+object fmApp: TfmApp
   Left = 312
   Top = 475
   Width = 545

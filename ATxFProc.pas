@@ -26,7 +26,7 @@ function FFindInSubdirs(const sname, sdir: Widestring; var fn: Widestring): bool
 function FExecProcess(const CmdLine, CurrentDir: Widestring; ShowCmd: integer; DoWait: boolean): TExecCode;
 procedure FReadIniSection(const fn, sec: string; L: TStringList);
 procedure FWriteIniSectionToFile(const fn, sec, fn_out: string);
-procedure FFindToList(List: TTntStringList;
+procedure FFindToList(List: TStringList;
   const ADir, AMasksInclude, AMasksExclude: Widestring;
   ASubDir: boolean;
   ANoRO: boolean;
@@ -813,7 +813,7 @@ begin
 end;
 
 
-procedure FFindToList(List: TTntStringList;
+procedure FFindToList(List: TStringList;
   const ADir, AMasksInclude, AMasksExclude: Widestring;
   ASubDir: boolean;
   ANoRO: boolean;

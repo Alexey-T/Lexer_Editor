@@ -1,0 +1,15 @@
+[comments]
+styles_cmt=Comment
+styles_str=String
+
+[map]
+Comment=Comment
+Keywords=Id1
+Params=Id
+Comment shebang=CommentDoc
+String=String
+Symbol=Symbol
+Var=IdVar
+Number=Number
+Var block BG=IncludeBG1
+Ticks block BG=IncludeBG2
