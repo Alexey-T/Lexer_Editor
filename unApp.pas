@@ -113,8 +113,13 @@ begin
 end;
 
 procedure TfmApp.btnEditClick(Sender: TObject);
+var
+  NCnt: integer;
 begin
+  NCnt:= FLexLib.AnalyzerCount;
   DoLexerLibraryDialog(FLexLib, ilImagesTree, FLexDir);
+  if NCnt<>FLexLib.AnalyzerCount then
+    DoLog('Lexers count changed: '+IntToStr(FLexLib.AnalyzerCount));
 end;
 
 procedure TfmApp.DoLog(S: string);
