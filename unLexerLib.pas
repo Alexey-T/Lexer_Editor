@@ -6,7 +6,6 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ActnList, ImgList, ToolWin,
   CheckLst, ComCtrls,
-  unGlobData,
   ecSyntAnal;
 
 type
@@ -36,6 +35,7 @@ type
     procedure LVClickCheck(Sender: TObject);
   private
     FLexLib: TSyntaxManager;
+    FLexDir: string;
     FTreeImages: TImageList;
     procedure UpdateList;
   public
@@ -62,6 +62,11 @@ uses
 function LexerFilename(const ALexName, ALexDir: string): string;
 begin
   Result:= ALexDir+'\'+ALexName+'.lcf';
+end;
+
+function LexerFilenameLexmap(const ALexName, ALexDir: string): string;
+begin
+  Result:= ALexDir+'\'+ALexName+'.cuda-lexmap';
 end;
 
 procedure DoLexerSaveToFile(an: TSyntAnalyzer; const AFilename: string);
@@ -134,6 +139,7 @@ begin
 
   with TfmLexerLibrary.Create(nil) do
   try
+    FLexDir:= ALexerLibDir;
     FLexLib:= ALexerLib;
     FTreeImages:= ATreeImages;
     ShowModal;
@@ -216,7 +222,8 @@ begin
   if LV.ItemIndex>=0 then
   begin
     An:= LV.Items.Objects[LV.ItemIndex] as TSyntAnalyzer;
-    if DoLexerPropDialog(An, FTreeImages, SynLexerMapFilename(An.LexerName)) then
+    if DoLexerPropDialog(An, FTreeImages,
+      LexerFilenameLexmap(An.LexerName, FLexDir)) then
     begin
       LV.Items[LV.ItemIndex]:= LexerNameWithLinks(An);
       FLexLib.Modified:= True;
@@ -230,7 +237,8 @@ var
   An: TSyntAnalyzer;
 begin
   An:= FLexLib.AddAnalyzer;
-  if DoLexerPropDialog(An, FTreeImages, SynLexerMapFilename(An.LexerName)) then
+  if DoLexerPropDialog(An, FTreeImages,
+    LexerFilenameLexmap(An.LexerName, FLexDir)) then
   begin
     FLexLib.Modified:= True;
     An.Tag:= 1;
