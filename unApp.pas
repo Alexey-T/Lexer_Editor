@@ -22,6 +22,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
     FConfigFilename: string;
@@ -138,6 +139,15 @@ end;
 procedure TfmApp.DoLog(S: string);
 begin
   mmoLog.Lines.Add(S);
+end;
+
+procedure TfmApp.FormShow(Sender: TObject);
+begin
+  if not FShowWelcome then
+  begin
+    btnEdit.Click;
+    Close;
+  end;
 end;
 
 end.

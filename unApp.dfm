@@ -14,6 +14,7 @@ object fmApp: TfmApp
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object mmoLog: TMemo
