@@ -6,7 +6,7 @@ Program supports config file "lexer_editor.ini" in its folder.
 Options in section [op]:
 
 - "library_dir" - path of folder with .lcf files.
-  Default value is folder of Lexer Editor, you can put this program to CudaText folder and it will find lexers.
+  Default value is [folder of Lexer Editor]/data/lexlib.
 
 Source code for Delphi 7:
 https://github.com/Alexey-T/Lexer_Editor
