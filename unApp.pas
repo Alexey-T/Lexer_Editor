@@ -26,7 +26,6 @@ type
   private
     { Private declarations }
     FConfigFilename: string;
-    FShowWelcome: Boolean;
   public
     { Public declarations }
     FLexDir: string;
@@ -112,7 +111,6 @@ begin
   try
     FLexDir:= Ini.ReadString('op', 'library_dir',
       ExtractFileDir(Application.ExeName)+'\data\lexlib');
-    FShowWelcome:= Ini.ReadBool('op', 'show_welcome', True);  
   finally
     FreeAndNil(Ini);
   end;
@@ -143,11 +141,8 @@ end;
 
 procedure TfmApp.FormShow(Sender: TObject);
 begin
-  if not FShowWelcome then
-  begin
-    btnEdit.Click;
-    Close;
-  end;
+  btnEdit.Click;
+  Close;
 end;
 
 end.
